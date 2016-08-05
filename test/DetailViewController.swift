@@ -10,9 +10,8 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
-    @IBOutlet weak var updateDate: UILabel!
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var createDateLabel: UILabel!
 
 
     var detailItem: AnyObject? {
@@ -25,17 +24,15 @@ class DetailViewController: UIViewController {
     func configureView() {
         // Update the user interface for the detail item.
         if let detail = self.detailItem {
-            if let label = self.detailDescriptionLabel {
-                // label.text = detail.valueForKey("timeStamp")!.description
-                label.text = detail.valueForKey("createDate")!.description
-            }
-            if let label = self.updateDate {
-                label.text = detail.valueForKey("updateDate")!.description
-            }
+//          if let label = self.detailDescriptionLabel {
+//              label.text = detail.valueForKey("timeStamp")!.description
+//          }
             if let myTextView = self.textView {
                 myTextView.text = detail.valueForKey("content")!.description
             }
-
+            if let label = self.createDateLabel {
+                label.text = detail.valueForKey("createDate")!.description
+            }
         }
     }
 
@@ -43,6 +40,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
+        self.textView.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
