@@ -47,6 +47,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         // If appropriate, configure the new managed object.
         // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
         // newManagedObject.setValue(NSDate(), forKey: "timeStamp")
+        newManagedObject.setValue("", forKey: "content")
         newManagedObject.setValue(NSDate(), forKey: "createDate")
         newManagedObject.setValue(NSDate(), forKey: "updateDate")
              

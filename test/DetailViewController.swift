@@ -11,6 +11,8 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
+    @IBOutlet weak var updateDate: UILabel!
+    @IBOutlet weak var textView: UITextView!
 
 
     var detailItem: AnyObject? {
@@ -27,6 +29,13 @@ class DetailViewController: UIViewController {
                 // label.text = detail.valueForKey("timeStamp")!.description
                 label.text = detail.valueForKey("createDate")!.description
             }
+            if let label = self.updateDate {
+                label.text = detail.valueForKey("updateDate")!.description
+            }
+            if let myTextView = self.textView {
+                myTextView.text = detail.valueForKey("content")!.description
+            }
+
         }
     }
 
