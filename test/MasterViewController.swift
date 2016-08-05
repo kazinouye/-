@@ -47,7 +47,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         // If appropriate, configure the new managed object.
         // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
         // newManagedObject.setValue(NSDate(), forKey: "timeStamp")
-        newManagedObject.setValue("New String", forKey: "content")
+        newManagedObject.setValue("", forKey: "content")
         newManagedObject.setValue(NSDate(), forKey: "createDate")
         newManagedObject.setValue(NSDate(), forKey: "updateDate")
              
@@ -60,6 +60,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             //print("Unresolved error \(error), \(error.userInfo)")
             abort()
         }
+        
+        // 入力画面に遷移
+        //performSegueWithIdentifier("showDetail", sender: nil)
     }
 
     // MARK: - Segues
@@ -75,7 +78,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             }
         }
     }
-
+    
+    
     // MARK: - Table View
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -118,7 +122,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     func configureCell(cell: UITableViewCell, withObject object: NSManagedObject) {
         // cell.textLabel!.text = object.valueForKey("timeStamp")!.description
         cell.textLabel!.text = object.valueForKey("content")!.description
-        cell.detailTextLabel!.text = object.valueForKey("createDate")!.description
+        cell.detailTextLabel!.text = object.valueForKey("updateDate")!.description
     }
 
     // MARK: - Fetched results controller

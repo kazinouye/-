@@ -47,7 +47,13 @@ class DetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    override func viewDidDisappear(animated: Bool) {
+        print("戻るボタン is tapped 2")
+        
+        detailItem?.setValue(NSDate(), forKey: "updateDate")
+        detailItem?.setValue(self.textView.text, forKey: "content")
+    
+    }
 }
 
